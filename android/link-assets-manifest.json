@@ -1,0 +1,29 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Anton-Regular.ttf",
+      "sha1": "49243712633711db3b673d0b03536e0180cd7ddb"
+    },
+    {
+      "path": "assets/fonts/BebasNeue-Regular.ttf",
+      "sha1": "8b3aaeb978f3cb5f575860774b50c332338563c1"
+    },
+    {
+      "path": "assets/fonts/DeliusUnicase-Bold.ttf",
+      "sha1": "d10c31c1395e8a120ea87173bba05ea2b250a1b7"
+    },
+    {
+      "path": "assets/fonts/DeliusUnicase-Regular.ttf",
+      "sha1": "f1a680307cc657651d4d1b96c5a520ac19cf47e7"
+    },
+    {
+      "path": "assets/fonts/GermaniaOne-Regular.ttf",
+      "sha1": "43625fafc89a9bab1f71c4ae312666860856db25"
+    },
+    {
+      "path": "assets/fonts/Mooli-Regular.ttf",
+      "sha1": "d9697af4351e41fdf1e25c9f4bb22592b0001c65"
+    }
+  ]
+}
