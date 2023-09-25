@@ -18,7 +18,7 @@ npm start
 yarn start
 ```
 
-![Screenshot_20230925_185747_Aktel rnler](https://github.com/uufko/MarketsApp/assets/98399730/2baf5b2d-456f-4200-a20f-bfeddbdb4899)
+(https://github.com/uufko/MarketsApp/assets/98399730/2baf5b2d-456f-4200-a20f-bfeddbdb4899)
 
 
 ## Step 2: Start your Application
