@@ -9,7 +9,8 @@ let deviceWidht = Dimensions.get('window').width;
 
 const dataPipeLine = doc(db,"data","bimpages")
 
-const BimPage2 = () => {
+const BimPage2 = ({route}) => {
+  const page = route.params;
     const [inCome, setInCome] = useState("")
 
 useEffect(() => {
@@ -24,7 +25,7 @@ useEffect(() => {
         cropHeight={deviceHeight}
         imageWidth={deviceWidht}
         imageHeight={deviceHeight}>
-        <ImageBackground source={{ uri: (inCome["page2"]) }} style={{ flex: 1 }} resizeMode='contain' />
+        <ImageBackground source={{ uri: (page) }} style={{ flex: 1 }} resizeMode='contain' />
       </ImageZoom>
     </View>
   )
