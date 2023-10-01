@@ -1,13 +1,17 @@
+
 import { View, ImageBackground, Dimensions } from "react-native"
 import ImageZoom from 'react-native-image-pan-zoom';
+import Sok from "../Sok";
+
 let deviceHeight = Dimensions.get('window').height;
 let deviceWidht = Dimensions.get('window').width;
 
-const SokPage2 = ({route}) => {
+
+const SokPage3 = ({route}) => {
   const page = route.params;
+    
   return (
     <View style={{ flex: 1, backgroundColor: "black" }}>
-
       <ImageZoom cropWidth={deviceWidht}
         cropHeight={deviceHeight}
         imageWidth={deviceWidht}
@@ -18,5 +22,4 @@ const SokPage2 = ({route}) => {
   )
 }
 
-export default SokPage2
-
+export default SokPage3

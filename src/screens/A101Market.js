@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase/config'
-import { View, Text, Image, ScrollView, Dimensions, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native'
+import { View, Text, Image, ScrollView, Dimensions, StyleSheet, TouchableOpacity , ImageBackground} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -12,9 +12,9 @@ import A101Page4 from './A101Pages/A101Page4';
 
 let deviceHeight = Dimensions.get('window').height;
 let deviceWidht = Dimensions.get('window').width;
-const dataPipeLine = doc(db, "data", "a101pages")
+const dataPipeLine = doc(db, "data", "a101marketpages")
 
-const A101 = ({ navigation }) => {
+const A101Market = ({ navigation }) => {
     const [inCome, setInCome] = useState("")
     useEffect(() => {
         onSnapshot(dataPipeLine, (doc) => {
@@ -66,39 +66,12 @@ const A101 = ({ navigation }) => {
         <ScrollView style={{ backgroundColor: "white" }}>
             <View style={[styles.viewStyle, { flexDirection: "row" }]} >
 
-                <TouchableOpacity style={{ justifyContent: "center", alignItems: "center", flex: 1 }}
-                    onPress={() => {
-                        setShowPage1(page1)
-                        setShowPage2(page2)
-                        setShowPage3(page3)
-                        setShowPage4(page4)
-                        setShowPage5(page5)
-                        setShowPage6(page6)
-                        setShowPage7(page7)
-                        setShowPage8(page8)
-                        setShowPage9(page9)
-                        setText("A101'de bu hafta")
-                    }} >
-                    <Text style={{ color: "white", fontSize: 13, opacity: .8 }}>Bu Hafta</Text></TouchableOpacity>
+
 
                 <View style={{ justifyContent: "center", alignItems: "center", flex: 2 }}>
                     <Image source={require("../../assets/images/a101logo.png")} style={{ flex: 2, resizeMode: "contain", height: deviceHeight / 10, width: deviceHeight / 10 }}></Image>
                     <Text style={{ flex: 1, fontSize: 12, opacity: .5, color: "white" }}>{text}</Text></View>
-                <TouchableOpacity style={{ justifyContent: "center", alignItems: "center", flex: 1 }}
-                    onPress={() => {
-                        setShowPage1(nextPage1)
-                        setShowPage2(nextPage2)
-                        setShowPage3(nextPage3)
-                        setShowPage4(nextPage4)
-                        setShowPage5(nextPage5)
-                        setShowPage6(nextPage6)
-                        setShowPage7(nextPage7)
-                        setShowPage8(nextPage8)
-                        setShowPage9(nextPage9)
-                        setText("A101'de gelecek hafta")
-                    }} >
-                    <Text style={{ color: "white", fontSize: 13, opacity: .8 }}>Gelecek Hafta</Text>
-                </TouchableOpacity>
+
             </View>
             {showPage1 == "0" ? <></> : <TouchableOpacity activeOpacity={1} style={styles.touchOpStyle} onPress={() => navigation.navigate("A101Page1", showPage1)}>
                 <ImageBackground source={{ uri: (showPage1) }} style={styles.ImageStyle} /></TouchableOpacity>}
@@ -148,4 +121,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default A101
+export default A101Market

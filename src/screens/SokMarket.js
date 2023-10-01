@@ -10,9 +10,9 @@ import SokPage2 from './SokPages/SokPage2';
 
 let deviceHeight = Dimensions.get('window').height;
 let deviceWidht = Dimensions.get('window').width;
-const dataPipeLine = doc(db, "data", "sokpages")
+const dataPipeLine = doc(db, "data", "sokmarketpages")
 
-const Sok = ({ navigation }) => {
+const SokMarket = ({ navigation }) => {
   const [inCome, setInCome] = useState("")
   useEffect(() => {
     onSnapshot(dataPipeLine, (doc) => {
@@ -46,7 +46,7 @@ const Sok = ({ navigation }) => {
     const [showPage7, setShowPage7] = useState(page7)
     const [showPage8, setShowPage8] = useState(page8)
     const [showPage9, setShowPage9] = useState(page9)
-  const [text, setText] = useState("Şok'ta Hafta Sonu Fırsatları")
+  const [text, setText] = useState("Şok'ta Haftanın Fırsatları")
 
   useEffect(() => {
     setShowPage1(page1)
@@ -60,10 +60,10 @@ const Sok = ({ navigation }) => {
         setShowPage9(page9)
   }, [page1]);
 
-
   return (
     <ScrollView style={{ backgroundColor: "white" }}>
       <View style={[styles.viewStyle, { flexDirection: "row" }]} >
+        
 
         <View style={{ justifyContent: "center", alignItems: "center", flex: 2 }}>
 
@@ -118,4 +118,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Sok
+export default SokMarket
