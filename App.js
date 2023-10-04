@@ -36,6 +36,7 @@ import SokPage9 from './src/screens/SokPages/SokPage9';
 import SokButtomTabs from './navigation/SokButtomTabs';
 import A101BottomTabs from './navigation/A101BottomTabs';
 import BimBottomTabs from './navigation/BimBottomTabs';
+import BimMarket from './src/screens/BimMarket';
 
 const Stack = createNativeStackNavigator();
 const App = () => {
@@ -109,6 +110,8 @@ const App = () => {
         <Stack.Screen name='A101BottomTabs' component={A101BottomTabs}
           options={{ headerShown: false }} />
         <Stack.Screen name='SokButtomTabs' component={SokButtomTabs}
+          options={{ headerShown: false }} />
+        <Stack.Screen name='BimMarket' component={BimMarket}
           options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>

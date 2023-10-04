@@ -6,6 +6,7 @@ import A101 from './A101';
 import A101BottomTabs from '../../navigation/A101BottomTabs';
 import SokButtomTabs from '../../navigation/SokButtomTabs';
 import BimBottomTabs from '../../navigation/BimBottomTabs';
+import BimMarket from './BimMarket';
 
 const HomeScreen = ({ navigation }) => {
     const bimRed = "#ed1c24"

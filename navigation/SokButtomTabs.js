@@ -13,7 +13,7 @@ const SokButtomTabs = () => {
         headerShown: false,
         tabBarActiveTintColor: "black",
         tabBarInactiveTintColor: "#808080",
-        tabBarStyle: { borderRadius: 0, backgroundColor: "#ffe001", height:35},
+        tabBarStyle: { borderRadius: 0, backgroundColor: "#ffe001", height:45},
         tabBarIconStyle: { display: "none" }
       }} />
       <Tab.Screen name='Hafta Sonu Fırsatları' component={Sok} options={{
@@ -21,7 +21,7 @@ const SokButtomTabs = () => {
         headerShown: false,
         tabBarActiveTintColor: "black",
         tabBarInactiveTintColor: "#808080",
-        tabBarStyle: { borderRadius:0, backgroundColor: "#ffe001", height:35},
+        tabBarStyle: { borderRadius:0, backgroundColor: "#ffe001", height:45},
         tabBarIconStyle: { display: "none" }
       }} />
     </Tab.Navigator>

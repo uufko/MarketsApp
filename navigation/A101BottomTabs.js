@@ -13,7 +13,7 @@ const A101BottomTabs = () => {
       tabBarActiveTintColor:"white",
       tabBarInactiveTintColor:"#808080",
       headerShown: false , 
-      tabBarStyle:{borderRadius:0, backgroundColor:"#00abc7" ,height:35} ,
+      tabBarStyle:{borderRadius:0, backgroundColor:"#00abc7" ,height:45} ,
       tabBarIconStyle:{display:"none"}
     }}/>
       <Tab.Screen name='Aldın Aldın' component={A101} options={{ headerShown: false }} 
@@ -21,7 +21,7 @@ const A101BottomTabs = () => {
       tabBarActiveTintColor:"white",
       tabBarInactiveTintColor:"#808080",
       headerShown: false , 
-      tabBarStyle:{borderRadius:0, backgroundColor:"#00abc7",height:35} ,
+      tabBarStyle:{borderRadius:0, backgroundColor:"#00abc7",height:45} ,
       tabBarIconStyle:{display:"none"}
     }} />
     </Tab.Navigator>
