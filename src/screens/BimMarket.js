@@ -2,24 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase/config'
 import { View, Text, Image, ScrollView, Dimensions, StyleSheet, TouchableOpacity, ImageBackground, SafeAreaView } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import BimPage1 from './BimPages/BimPage1';
-import BimPage2 from './BimPages/BimPage2';
-import BimPage3 from './BimPages/BimPage3';
-import BimPage4 from './BimPages/BimPage4';
-import BimPage5 from './BimPages/BimPage5';
-import ImageZoom from 'react-native-image-pan-zoom';
-
+import { BannerAd, TestIds, BannerAdSize } from '@react-native-admob/admob';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Bim from './Bim';
+
 
 let deviceHeight = Dimensions.get('window').height;
 let deviceWidht = Dimensions.get('window').width;
 const dataPipeLine = doc(db, "data", "bimmarketpages")
 const Tab = createBottomTabNavigator();
 
+
+
 const BimMarket = ({ navigation }) => {
+    
     const [inCome, setInCome] = useState("")
     useEffect(() => {
         onSnapshot(dataPipeLine, (doc) => {
@@ -66,7 +61,6 @@ const BimMarket = ({ navigation }) => {
         setShowPage8(page8)
         setShowPage9(page9)
     }, [page1]);
-
     return (
         <SafeAreaView>
 
@@ -128,6 +122,7 @@ const BimMarket = ({ navigation }) => {
                     <ImageBackground source={{ uri: (showPage9) }} style={styles.ImageStyle} /></TouchableOpacity>}
 
             </ScrollView >
+        
         
         </SafeAreaView>
     )

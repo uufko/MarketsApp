@@ -53,12 +53,7 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Mooli-Regular.ttf</string>
-		<string>Anton-Regular.ttf</string>
-		<string>BebasNeue-Regular.ttf</string>
-		<string>DeliusUnicase-Bold.ttf</string>
-		<string>DeliusUnicase-Regular.ttf</string>
-		<string>GermaniaOne-Regular.ttf</string>
+		<string>Koblenz-Serial-Heavy.ttf</string>
 	</array>
 </dict>
 </plist>

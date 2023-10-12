@@ -14,12 +14,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-MarketsApp-MarketsAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-MarketsApp-MarketsAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		D7D21CE2E48F45279EEE35E5 /* Mooli-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5A3343B9A184310AB69388A /* Mooli-Regular.ttf */; };
-		0A78FA409A734A24A1400E4B /* Anton-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6D9039113D574004B930DAAD /* Anton-Regular.ttf */; };
-		AB436C902D6C48D2B23260E8 /* BebasNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4EBEA95C0474E2D80922245 /* BebasNeue-Regular.ttf */; };
-		75D2C86D4A944586AA9520E2 /* DeliusUnicase-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75D187EB8C3846D68414D202 /* DeliusUnicase-Bold.ttf */; };
-		3A0257115D7D48BFA5BC8728 /* DeliusUnicase-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9F4A819E43E4B652C874 /* DeliusUnicase-Regular.ttf */; };
-		0035AFC4DFA64F5B86F8B906 /* GermaniaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F1AAEE82DC35441EB6D464BB /* GermaniaOne-Regular.ttf */; };
+		43538AC70BFC48BB81BE14E4 /* Koblenz-Serial-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 30B85A5477D24A9D999C15AF /* Koblenz-Serial-Heavy.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,12 +45,7 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = MarketsApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-MarketsApp-MarketsAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarketsApp-MarketsAppTests.release.xcconfig"; path = "Target Support Files/Pods-MarketsApp-MarketsAppTests/Pods-MarketsApp-MarketsAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F5A3343B9A184310AB69388A /* Mooli-Regular.ttf */ = {isa = PBXFileReference; name = "Mooli-Regular.ttf"; path = "../assets/fonts/Mooli-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6D9039113D574004B930DAAD /* Anton-Regular.ttf */ = {isa = PBXFileReference; name = "Anton-Regular.ttf"; path = "../assets/fonts/Anton-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E4EBEA95C0474E2D80922245 /* BebasNeue-Regular.ttf */ = {isa = PBXFileReference; name = "BebasNeue-Regular.ttf"; path = "../assets/fonts/BebasNeue-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		75D187EB8C3846D68414D202 /* DeliusUnicase-Bold.ttf */ = {isa = PBXFileReference; name = "DeliusUnicase-Bold.ttf"; path = "../assets/fonts/DeliusUnicase-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2A8E9F4A819E43E4B652C874 /* DeliusUnicase-Regular.ttf */ = {isa = PBXFileReference; name = "DeliusUnicase-Regular.ttf"; path = "../assets/fonts/DeliusUnicase-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F1AAEE82DC35441EB6D464BB /* GermaniaOne-Regular.ttf */ = {isa = PBXFileReference; name = "GermaniaOne-Regular.ttf"; path = "../assets/fonts/GermaniaOne-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		30B85A5477D24A9D999C15AF /* Koblenz-Serial-Heavy.ttf */ = {isa = PBXFileReference; name = "Koblenz-Serial-Heavy.ttf"; path = "../assets/fonts/Koblenz-Serial-Heavy.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,12 +154,7 @@
 		DBF50F7AC69B48639D9B162C /* Resources */ = {
 			isa = "PBXGroup";
 			children = (
-				F5A3343B9A184310AB69388A /* Mooli-Regular.ttf */,
-				6D9039113D574004B930DAAD /* Anton-Regular.ttf */,
-				E4EBEA95C0474E2D80922245 /* BebasNeue-Regular.ttf */,
-				75D187EB8C3846D68414D202 /* DeliusUnicase-Bold.ttf */,
-				2A8E9F4A819E43E4B652C874 /* DeliusUnicase-Regular.ttf */,
-				F1AAEE82DC35441EB6D464BB /* GermaniaOne-Regular.ttf */,
+				30B85A5477D24A9D999C15AF /* Koblenz-Serial-Heavy.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -271,12 +256,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				D7D21CE2E48F45279EEE35E5 /* Mooli-Regular.ttf in Resources */,
-				0A78FA409A734A24A1400E4B /* Anton-Regular.ttf in Resources */,
-				AB436C902D6C48D2B23260E8 /* BebasNeue-Regular.ttf in Resources */,
-				75D2C86D4A944586AA9520E2 /* DeliusUnicase-Bold.ttf in Resources */,
-				3A0257115D7D48BFA5BC8728 /* DeliusUnicase-Regular.ttf in Resources */,
-				0035AFC4DFA64F5B86F8B906 /* GermaniaOne-Regular.ttf in Resources */,
+				43538AC70BFC48BB81BE14E4 /* Koblenz-Serial-Heavy.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
