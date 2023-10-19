@@ -10,8 +10,8 @@ const HomeScreen = ({ navigation }) => {
     const bimRed = "#ed1c24"
     const a101Blue = "#00abc7"
     const sokYellow = "#ffe001"
-    const bannerRef = useRef("ca-app-pub-9042490279958793~2684718177");
 
+    const bannerRef = useRef("ca-app-pub-9042490279958793/2956390345");
     return (
         <SafeAreaView style={styles.container}>
             <ImageBackground source={require("../../assets/images/backpng.png")} resizeMode='stretch' style={{ flex: 1, gap: 30 }}>
@@ -32,10 +32,10 @@ const HomeScreen = ({ navigation }) => {
                 <TouchableOpacity style={[styles.touchableOpacityStyle, { backgroundColor: "#ffe001" }]}
                     onPress={() => navigation.navigate(SokButtomTabs)}>
                     <Image style={styles.imageStyle} source={require("../../assets/images/soklogo.png")}></Image>
-                </TouchableOpacity><View style={{ flex: .1 }}></View>
+                </TouchableOpacity><View style={{ flex:0.2 }}></View>
             </ImageBackground>
 
-            <BannerAd style={{ position: "absolute", bottom: 0 }}
+            <BannerAd style={{ position: "absolute", bottom: 0, alignSelf:"center"  }}
                 size={BannerAdSize.BANNER}
                 unitId={TestIds.BANNER}
                 ref={bannerRef}

@@ -8,6 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import A101Page1 from './A101Pages/A101Page1';
 import A101Page2 from './A101Pages/A101Page2';
 import A101Page3 from './A101Pages/A101Page3';
+import BannerAds from '../../components/BannerAds';
 import A101Page4 from './A101Pages/A101Page4';
 
 let deviceHeight = Dimensions.get('window').height;
@@ -118,7 +119,8 @@ const A101 = ({ navigation }) => {
                 <ImageBackground source={{ uri: (showPage8) }} style={styles.ImageStyle} /></TouchableOpacity>}
             {showPage9 == "0" ? <></> : <TouchableOpacity activeOpacity={1} style={styles.touchOpStyle} onPress={() => navigation.navigate("A101Page9", showPage9)}>
                 <ImageBackground source={{ uri: (showPage9) }} style={styles.ImageStyle} /></TouchableOpacity>}
-        </ScrollView >
+                <BannerAds/>
+                </ScrollView >
 
     )
 }
