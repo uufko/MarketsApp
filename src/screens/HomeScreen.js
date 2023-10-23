@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import A101BottomTabs from '../../navigation/A101BottomTabs';
 import SokButtomTabs from '../../navigation/SokButtomTabs';
 import BimBottomTabs from '../../navigation/BimBottomTabs';
-import { BannerAd, TestIds, BannerAdSize } from '@react-native-admob/admob';
+import BannerAds from '../../components/BannerAds';
 
 
 const HomeScreen = ({ navigation }) => {
@@ -32,14 +32,9 @@ const HomeScreen = ({ navigation }) => {
                 <TouchableOpacity style={[styles.touchableOpacityStyle, { backgroundColor: "#ffe001" }]}
                     onPress={() => navigation.navigate(SokButtomTabs)}>
                     <Image style={styles.imageStyle} source={require("../../assets/images/soklogo.png")}></Image>
-                </TouchableOpacity><View style={{ flex:0.2 }}></View>
+                </TouchableOpacity><View style={{ flex: 0.2 }}></View>
             </ImageBackground>
-
-            <BannerAd style={{ position: "absolute", bottom: 0, alignSelf:"center"  }}
-                size={BannerAdSize.BANNER}
-                unitId={TestIds.BANNER}
-                ref={bannerRef}
-            />
+            <BannerAds />
         </SafeAreaView>
     )
 }

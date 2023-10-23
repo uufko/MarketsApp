@@ -1,15 +1,16 @@
-import { View, Text ,useRef,bannerRef} from 'react-native'
+import { View, Text, Button} from 'react-native'
 import React from 'react'
-import { BannerAd, TestIds, BannerAdSize } from '@react-native-admob/admob';
+import {BannerAd, BannerAdSize, TestIds,InterstitialAd,AdEventType} from 'react-native-google-mobile-ads';
+
+const adUnitId = __DEV__ ? TestIds.APP_OPEN : 'ca-app-pub-9042490279958793/3673351850';
 
 const BannerAds = () => {
   return (
-    <View>
-      <BannerAd style={{ position: "relative", bottom: 0,alignSelf:"center" }}
-                size={BannerAdSize.BANNER}
-                unitId={TestIds.BANNER}
-                ref={bannerRef}
-            />
+    <View style={{alignItems:"center"}}>
+      <BannerAd
+        size={BannerAdSize.BANNER}
+        unitId={TestIds.BANNER}
+      />
     </View>
   )
 }
