@@ -2,12 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase/config'
 import { View, Text, Image, ScrollView, Dimensions, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native'
-import ImageZoom from 'react-native-image-pan-zoom';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SokPage1 from './SokPages/SokPage1';
-import SokPage2 from './SokPages/SokPage2';
-import BannerAds from '../../components/BannerAds';
+import LargeBannerAds from '../../components/LargeBannerAds';
 
 let deviceHeight = Dimensions.get('window').height;
 let deviceWidht = Dimensions.get('window').width;
@@ -90,7 +85,7 @@ const Sok = ({ navigation }) => {
                 <ImageBackground source={{ uri: (showPage8) }} style={styles.ImageStyle} /></TouchableOpacity>}
             {showPage9 == "0" ? <></> : <TouchableOpacity activeOpacity={1} style={styles.touchOpStyle} onPress={() => navigation.navigate("SokPage9", showPage9)}>
                 <ImageBackground source={{ uri: (showPage9) }} style={styles.ImageStyle} /></TouchableOpacity>}
-                <BannerAds/></ScrollView >
+                <LargeBannerAds/></ScrollView >
   )
 }
 

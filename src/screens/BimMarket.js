@@ -4,7 +4,7 @@ import { db } from '../../firebase/config'
 import { View, Text, Image, ScrollView, Dimensions, StyleSheet, TouchableOpacity, ImageBackground, SafeAreaView } from 'react-native'
 import { BannerAd, TestIds, BannerAdSize } from '@react-native-admob/admob';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import BannerAds from '../../components/BannerAds';
+import LargeBannerAds from '../../components/LargeBannerAds';
 
 
 let deviceHeight = Dimensions.get('window').height;
@@ -125,7 +125,7 @@ const BimMarket = ({ navigation }) => {
                 {showPage9 == "0" ? <></> : <TouchableOpacity activeOpacity={1} style={styles.touchOpStyle} onPress={() => navigation.navigate("BimPage9", showPage9)}>
                     <ImageBackground source={{ uri: (showPage9) }} style={styles.ImageStyle} /></TouchableOpacity>}
                     
-            <BannerAds/>
+            <LargeBannerAds/>
             </ScrollView >
             
             

@@ -2,18 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase/config'
 import { View, Text, Image, ScrollView, Dimensions, StyleSheet, TouchableOpacity, ImageBackground, SafeAreaView } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import BimPage1 from './BimPages/BimPage1';
-import BimPage2 from './BimPages/BimPage2';
-import BimPage3 from './BimPages/BimPage3';
-import BimPage4 from './BimPages/BimPage4';
-import BimPage5 from './BimPages/BimPage5';
-import ImageZoom from 'react-native-image-pan-zoom';
-import BannerAds from '../../components/BannerAds';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import BimMarket from './BimMarket';
+import LargeBannerAds from '../../components/LargeBannerAds';
 
 let deviceHeight = Dimensions.get('window').height;
 let deviceWidht = Dimensions.get('window').width;
@@ -126,7 +117,7 @@ const Bim = ({ navigation }) => {
                     <ImageBackground source={{ uri: (showPage8) }} style={styles.ImageStyle} /></TouchableOpacity>}
                 {showPage9 == "0" ? <></> : <TouchableOpacity activeOpacity={1} style={styles.touchOpStyle} onPress={() => navigation.navigate("BimPage9", showPage9)}>
                     <ImageBackground source={{ uri: (showPage9) }} style={styles.ImageStyle} /></TouchableOpacity>}
-                    <BannerAds/>
+                    <LargeBannerAds/>
                     </ScrollView >
             
 

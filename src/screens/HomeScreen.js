@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import A101BottomTabs from '../../navigation/A101BottomTabs';
 import SokButtomTabs from '../../navigation/SokButtomTabs';
 import BimBottomTabs from '../../navigation/BimBottomTabs';
-import BannerAds from '../../components/BannerAds';
+import FullBannerAds from '../../components/FullBannerAds';
 
 
 const HomeScreen = ({ navigation }) => {
@@ -36,8 +36,9 @@ const HomeScreen = ({ navigation }) => {
                 </TouchableOpacity><View style={{ flex: 0.2 }}></View>
             </ImageBackground>
             <View style={{ position: "absolute" ,bottom:0, alignSelf:"center"}}>
-                <BannerAds/>
+                <FullBannerAds/>
             </View>
+            
         </SafeAreaView>
     )
 }

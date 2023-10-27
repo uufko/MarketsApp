@@ -4,7 +4,7 @@ import {BannerAd, BannerAdSize, TestIds,InterstitialAd,AdEventType} from 'react-
 
 const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-9042490279958793/3673351850';
 
-const BannerAds = () => {
+const FullBannerAds = () => {
   return (
     <View style={{alignItems:"center"}}>
       <BannerAd
@@ -15,4 +15,4 @@ const BannerAds = () => {
   )
 }
 
-export default BannerAds
+export default FullBannerAds
