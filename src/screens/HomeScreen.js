@@ -1,9 +1,9 @@
-import { Button, StyleSheet, Text, View, TouchableOpacity, Image, ImageBackground, SafeAreaView } from 'react-native'
+import {StyleSheet, Text, View, TouchableOpacity, Image, ImageBackground, SafeAreaView } from 'react-native'
 import React, { useRef } from 'react'
-import A101BottomTabs from '../../navigation/A101BottomTabs';
-import SokButtomTabs from '../../navigation/SokButtomTabs';
-import BimBottomTabs from '../../navigation/BimBottomTabs';
-import FullBannerAds from '../../components/FullBannerAds';
+import Bim from './Bim';
+import A101 from './A101';
+import Sok from './Sok';
+import FullBannerAds from '../../components/ads/FullBannerAds';
 
 
 const HomeScreen = ({ navigation }) => {
@@ -19,19 +19,19 @@ const HomeScreen = ({ navigation }) => {
                     <Text style={{ fontSize: 30, fontFamily: "Koblenz-Serial-Heavy", color: "#feede6" }}>AKTÜEL ÜRÜNLER</Text></View>
 
                 <TouchableOpacity style={[styles.touchableOpacityStyle, { backgroundColor: "#ed1c24" }]}
-                    onPress={() => navigation.navigate(BimBottomTabs)}>
+                    onPress={() => navigation.navigate(Bim)}>
                     <Image style={styles.imageStyle} source={require("../../assets/images/bimlogo.png")}></Image>
                 </TouchableOpacity>
 
 
                 <TouchableOpacity style={[styles.touchableOpacityStyle, { backgroundColor: "#00abc7" }]}
-                    onPress={() => navigation.navigate(A101BottomTabs)}>
+                    onPress={() => navigation.navigate(A101)}>
                     <Image style={styles.imageStyle} source={require("../../assets/images/a101logo.png")}></Image>
                 </TouchableOpacity>
 
 
                 <TouchableOpacity style={[styles.touchableOpacityStyle, { backgroundColor: "#ffe001" }]}
-                    onPress={() => navigation.navigate(SokButtomTabs)}>
+                    onPress={() => navigation.navigate(Sok)}>
                     <Image style={styles.imageStyle} source={require("../../assets/images/soklogo.png")}></Image>
                 </TouchableOpacity><View style={{ flex: 0.2 }}></View>
             </ImageBackground>

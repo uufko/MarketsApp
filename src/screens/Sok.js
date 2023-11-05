@@ -1,117 +1,158 @@
-import React, { useEffect, useState } from 'react'
+import { View, Text, SafeAreaView, FlatList, ImageBackground, StyleSheet, Dimensions, TouchableOpacity, Image, ScrollView } from 'react-native'
+import React, { useState, useEffect } from 'react'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase/config'
-import { View, Text, Image, ScrollView, Dimensions, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native'
-import LargeBannerAds from '../../components/LargeBannerAds';
+import FullBannerAds from '../../components/ads/FullBannerAds'
 
-let deviceHeight = Dimensions.get('window').height;
+const dataPipeLine = doc(db, "data", "sok")
 let deviceWidht = Dimensions.get('window').width;
-const dataPipeLine = doc(db, "data", "sokpages")
+let deviceHeight = Dimensions.get('window').height;
+const sokYellow = "#ffe001"
 
 const Sok = ({ navigation }) => {
-  const [inCome, setInCome] = useState("")
-  useEffect(() => {
-    onSnapshot(dataPipeLine, (doc) => {
-      setInCome(doc.data());
-    })
-  }, []);
-  const page1 = inCome["page1"]
-    const page2 = inCome["page2"]
-    const page3 = inCome["page3"]
-    const page4 = inCome["page4"]
-    const page5 = inCome["page5"]
-    const page6 = inCome["page6"]
-    const page7 = inCome["page7"]
-    const page8 = inCome["page8"]
-    const page9 = inCome["page9"]
-    const nextPage1 = inCome["nextPage1"]
-    const nextPage2 = inCome["nextPage2"]
-    const nextPage3 = inCome["nextPage3"]
-    const nextPage4 = inCome["nextPage4"]
-    const nextPage5 = inCome["nextPage5"]
-    const nextPage6 = inCome["nextPage6"]
-    const nextPage7 = inCome["nextPage7"]
-    const nextPage8 = inCome["nextPage8"]
-    const nextPage9 = inCome["nextPage9"]
-    const [showPage1, setShowPage1] = useState(page1)
-    const [showPage2, setShowPage2] = useState(page2)
-    const [showPage3, setShowPage3] = useState(page3)
-    const [showPage4, setShowPage4] = useState(page4)
-    const [showPage5, setShowPage5] = useState(page5)
-    const [showPage6, setShowPage6] = useState(page6)
-    const [showPage7, setShowPage7] = useState(page7)
-    const [showPage8, setShowPage8] = useState(page8)
-    const [showPage9, setShowPage9] = useState(page9)
-  const [text, setText] = useState("Şok'ta Hafta Sonu Fırsatları")
 
-  useEffect(() => {
-    setShowPage1(page1)
-    setShowPage2(page2)
-    setShowPage3(page3)
-    setShowPage4(page4)
-    setShowPage5(page5)
-    setShowPage6(page6)
-        setShowPage7(page7)
-        setShowPage8(page8)
-        setShowPage9(page9)
-  }, [page1]);
+    const styleFunc = (item) => {
+        if (item == currentDate[0] && currentPage == showPage) {
+            return { color: "black" }
+        } else if (item == currentDate[1] && currentPage == showPage2) {
+            return { color: "black" }
+        }
+        else {
+            return { color: "gray" }
+        }
+    }
+
+    const [inCome, setInCome] = useState("")
+    useEffect(() => {
+        onSnapshot(dataPipeLine, (doc) => {
+            setInCome(doc.data());
+        })
+    }, []);
+
+    const market = inCome["market"]
+    const marketNext = inCome["marketNext"]
+    const aktuel = inCome["aktuel"]
+    const aktuelNext = inCome["aktuelNext"]
+    const marketDates = inCome["marketDates"]
+    const aktuelDates = inCome["aktuelDates"]
+
+    const [currentPage, setCurrentPage] = useState(market)
+    const [colorMarket, setColorMarket] = useState("black")
+    const [colorAktuel, setColorAktuel] = useState("gray")
+    const [showPage, setShowPage] = useState(market)
+    const [showPage2, setShowPage2] = useState(marketNext)
+    const [currentDate, setCurrentDate] = useState(marketDates)
+    const [text, setText] = useState("Çarşamba Fırsatları")
+
+    useEffect(() => {
+        setCurrentDate(marketDates)
+    }, [marketDates, aktuelDates])
 
 
-  return (
-    <ScrollView style={{ backgroundColor: "white" }}>
-      <View style={[styles.viewStyle, { flexDirection: "row" }]} >
+    useEffect(() => {
+        setCurrentPage(market)
+        setShowPage(market)
+        setShowPage2(marketNext)
+    }, [market])
 
-        <View style={{ justifyContent: "center", alignItems: "center", flex: 2 }}>
+    return (
+        <SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
+            <ScrollView>
+                <View style={{ justifyContent: "center", alignItems: "center", backgroundColor: sokYellow }}>
+                    <Image source={require("../../assets/images/soklogo.png")} style={{ marginTop: 5, resizeMode: "contain", height: deviceHeight / 18, width: deviceHeight / 8 }} />
+                    <Text style={{ fontSize: 12, opacity: .5, color: "black" }}>{text}</Text>
+                </View>
+                <View style={{ flexDirection: "row", justifyContent: "space-around", backgroundColor: sokYellow }}>
+                    <TouchableOpacity style={[styles.touchableStyle, currentPage==market ? {borderBottomWidth:1} : {borderBottomWidth:0}]} onPress={() => {
+                        setCurrentPage(market)
+                        setColorMarket("black")
+                        setColorAktuel("#8b8987")
+                        setShowPage(market)
+                        setShowPage2(marketNext)
+                        setCurrentDate(marketDates)
+                        setText("Çarşamba Fırsatları")
 
-          <Image source={require("../../assets/images/soklogo.png")} style={{ flex: 2, resizeMode: "contain", height: deviceHeight / 10, width: deviceHeight / 10 }}></Image>
-          <Text style={{ flex: 1, fontSize: 12, opacity: .5, color: "black" }}>{text}</Text></View>
-        
-      </View>
-      {showPage1 == "0" ? <></> : <TouchableOpacity activeOpacity={1} style={styles.touchOpStyle} onPress={() => navigation.navigate("SokPage1", showPage1)}>
-                <ImageBackground source={{ uri: (showPage1) }} style={styles.ImageStyle} /></TouchableOpacity>}
-            {showPage2 == "0" ? <></> : <TouchableOpacity activeOpacity={1} style={styles.touchOpStyle} onPress={() => navigation.navigate("SokPage2", showPage2)}>
-                <ImageBackground source={{ uri: (showPage2) }} style={styles.ImageStyle} /></TouchableOpacity>}
-            {showPage3 == "0" ? <></> : <TouchableOpacity activeOpacity={1} style={styles.touchOpStyle} onPress={() => navigation.navigate("SokPage3", showPage3)}>
-                <ImageBackground source={{ uri: (showPage3) }} style={styles.ImageStyle} /></TouchableOpacity>}
-            {showPage4 == "0" ? <></> : <TouchableOpacity activeOpacity={1} style={styles.touchOpStyle} onPress={() => navigation.navigate("SokPage4", showPage4)}>
-                <ImageBackground source={{ uri: (showPage4) }} style={styles.ImageStyle} /></TouchableOpacity>}
-            {showPage5 == "0" ? <></> : <TouchableOpacity activeOpacity={1} style={styles.touchOpStyle} onPress={() => navigation.navigate("SokPage5", showPage5)}>
-                <ImageBackground source={{ uri: (showPage5) }} style={styles.ImageStyle} /></TouchableOpacity>}
-            {showPage6 == "0" ? <></> : <TouchableOpacity activeOpacity={1} style={styles.touchOpStyle} onPress={() => navigation.navigate("SokPage6", showPage6)}>
-                <ImageBackground source={{ uri: (showPage6) }} style={styles.ImageStyle} /></TouchableOpacity>}
-            {showPage7 == "0" ? <></> : <TouchableOpacity activeOpacity={1} style={styles.touchOpStyle} onPress={() => navigation.navigate("SokPage7", showPage7)}>
-                <ImageBackground source={{ uri: (showPage7) }} style={styles.ImageStyle} /></TouchableOpacity>}
-            {showPage8 == "0" ? <></> : <TouchableOpacity activeOpacity={1} style={styles.touchOpStyle} onPress={() => navigation.navigate("SokPage8", showPage8)}>
-                <ImageBackground source={{ uri: (showPage8) }} style={styles.ImageStyle} /></TouchableOpacity>}
-            {showPage9 == "0" ? <></> : <TouchableOpacity activeOpacity={1} style={styles.touchOpStyle} onPress={() => navigation.navigate("SokPage9", showPage9)}>
-                <ImageBackground source={{ uri: (showPage9) }} style={styles.ImageStyle} /></TouchableOpacity>}
-                <LargeBannerAds/></ScrollView >
-  )
+                    }}>
+                        <Text style={{ color: colorMarket  }}>Çarşamba Fırsatları</Text></TouchableOpacity>
+                    <TouchableOpacity style={[styles.touchableStyle , currentPage==aktuel ? {borderBottomWidth:1} : {borderBottomWidth:0}]} onPress={() => {
+                        setCurrentPage(aktuel)
+                        setColorAktuel("black")
+                        setColorMarket("#8b8987")
+                        setShowPage(aktuel)
+                        setShowPage2(aktuelNext)
+                        setCurrentDate(aktuelDates)
+                        setText("Cumatesi Fırsatları")
+                    }}>
+                        <Text style={{ color: colorAktuel }}>Cumatesi Fırsatları</Text></TouchableOpacity>
+                </View>
+                <FlatList
+                    data={currentPage}
+                    renderItem={({ item }) => {
+                        return (
+                            <TouchableOpacity
+                                style={{ paddingBottom: 2 }}
+                                activeOpacity={1}
+                                onPress={() => {
+                                    navigation.navigate("FullScreen", item)
+                                }}>
+                                <ImageBackground
+                                    style={styles.imageStyle}
+                                    source={{ uri: item }} />
+                                    <FullBannerAds/>
+                            </TouchableOpacity>
+                        )
+                    }}
+                />
+                <View style={{ height: deviceWidht / 10 }}></View>
+            </ScrollView>
+            <View style={{
+                backgroundColor: sokYellow,
+                position: "absolute",
+                flex: 1,
+                bottom: 0,
+                flexDirection: "row",
+                alignItems: "center",
+                width: deviceWidht,
+                justifyContent: "space-around",
+                height: deviceWidht / 10
+            }}>
+
+                <FlatList
+                    columnWrapperStyle={{ justifyContent: "space-around" }}
+                    horizontal={false}
+                    numColumns={2}
+                    data={currentDate}
+                    renderItem={({ item }) => {
+                        return (
+                            <TouchableOpacity onPress={() => {
+                                item == currentDate[0] ? setCurrentPage(showPage) : <></>
+                                item == currentDate[0] ? setText("Bu Hafta") : <></>
+                                item == currentDate[1] ? setCurrentPage(showPage2) : <></>
+                                item == currentDate[1] ? setText("Gelecek Hafta") : <></>
+
+                            }}>
+                                <Text style={
+                                    styleFunc(item)}>{item}</Text>
+                            </TouchableOpacity>
+                        )
+                    }}
+                />
+            </View>
+        </SafeAreaView >
+    )
 }
 
 const styles = StyleSheet.create({
-  touchOpStyle: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F8F8FF",
-    paddingBottom: 2
-  },
-  ImageStyle: {
-    flex: 1,
-    height: deviceWidht * 1.44,
-    width: deviceWidht,
-    backgroundColor: "#F8F8FF",
-    resizeMode: "contain",
-  },
-  viewStyle: {
-    rowGap: -2,
-    backgroundColor: "#ffe001",
-    justifyContent: "center",
-    alignItems: "center",
-    height: deviceHeight / 12,
-    flexDirection: "column"
-  }
+    imageStyle: {
+        height: deviceWidht * 1.5,
+        width: deviceWidht,
+        flex: 1,
+        resizeMode: 'contain'
+    },
+    touchableStyle: {
+        flex: 1,
+        alignItems: "center",
+        borderBottomColor: "black"
+    }
 })
-
 export default Sok
