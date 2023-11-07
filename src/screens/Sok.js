@@ -8,6 +8,7 @@ const dataPipeLine = doc(db, "data", "sok")
 let deviceWidht = Dimensions.get('window').width;
 let deviceHeight = Dimensions.get('window').height;
 const sokYellow = "#ffe001"
+const sokLogo = require("../../assets/images/soklogo.png")
 
 const Sok = ({ navigation }) => {
 
@@ -59,11 +60,11 @@ const Sok = ({ navigation }) => {
         <SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
             <ScrollView>
                 <View style={{ justifyContent: "center", alignItems: "center", backgroundColor: sokYellow }}>
-                    <Image source={require("../../assets/images/soklogo.png")} style={{ marginTop: 5, resizeMode: "contain", height: deviceHeight / 18, width: deviceHeight / 8 }} />
+                    <Image source={sokLogo} style={styles.toolBarImageStyle} />
                     <Text style={{ fontSize: 12, opacity: .5, color: "black" }}>{text}</Text>
                 </View>
-                <View style={{ flexDirection: "row", justifyContent: "space-around", backgroundColor: sokYellow }}>
-                    <TouchableOpacity style={[styles.touchableStyle, currentPage==market ? {borderBottomWidth:1} : {borderBottomWidth:0}]} onPress={() => {
+                <View style={{ flexDirection: "row", justifyContent: "space-around", backgroundColor: sokYellow, height: deviceHeight / 20 }}>
+                    <TouchableOpacity style={[styles.touchableStyle, currentPage == market ? { borderBottomWidth: 2 } : { borderBottomWidth: 0 }]} onPress={() => {
                         setCurrentPage(market)
                         setColorMarket("black")
                         setColorAktuel("#8b8987")
@@ -73,8 +74,8 @@ const Sok = ({ navigation }) => {
                         setText("Çarşamba Fırsatları")
 
                     }}>
-                        <Text style={{ color: colorMarket  }}>Çarşamba Fırsatları</Text></TouchableOpacity>
-                    <TouchableOpacity style={[styles.touchableStyle , currentPage==aktuel ? {borderBottomWidth:1} : {borderBottomWidth:0}]} onPress={() => {
+                        <Text style={{ color: colorMarket }}>Çarşamba Fırsatları</Text></TouchableOpacity>
+                    <TouchableOpacity style={[styles.touchableStyle, currentPage == aktuel ? { borderBottomWidth: 2 } : { borderBottomWidth: 0 }]} onPress={() => {
                         setCurrentPage(aktuel)
                         setColorAktuel("black")
                         setColorMarket("#8b8987")
@@ -98,7 +99,7 @@ const Sok = ({ navigation }) => {
                                 <ImageBackground
                                     style={styles.imageStyle}
                                     source={{ uri: item }} />
-                                    <FullBannerAds/>
+                                <FullBannerAds />
                             </TouchableOpacity>
                         )
                     }}
@@ -126,9 +127,9 @@ const Sok = ({ navigation }) => {
                         return (
                             <TouchableOpacity onPress={() => {
                                 item == currentDate[0] ? setCurrentPage(showPage) : <></>
-                                item == currentDate[0] ? setText("Bu Hafta") : <></>
+                                item == currentDate[0] ? setText(item) : <></>
                                 item == currentDate[1] ? setCurrentPage(showPage2) : <></>
-                                item == currentDate[1] ? setText("Gelecek Hafta") : <></>
+                                item == currentDate[1] ? setText(item) : <></>
 
                             }}>
                                 <Text style={
@@ -152,7 +153,14 @@ const styles = StyleSheet.create({
     touchableStyle: {
         flex: 1,
         alignItems: "center",
+        justifyContent: "center",
         borderBottomColor: "black"
+    },
+    toolBarImageStyle: {
+        marginTop: 5,
+        resizeMode: "contain",
+        height: deviceHeight / 18,
+        width: deviceHeight / 8
     }
 })
 export default Sok

@@ -10,6 +10,9 @@ const HomeScreen = ({ navigation }) => {
     const bimRed = "#ed1c24"
     const a101Blue = "#00abc7"
     const sokYellow = "#ffe001"
+    const bimLogo = require("../../assets/images/bimlogo.png")
+    const a101Logo = require("../../assets/images/a101logo.png")
+    const sokLogo = require("../../assets/images/soklogo.png")
 
     const bannerRef = useRef("ca-app-pub-9042490279958793/2956390345");
     return (
@@ -20,19 +23,19 @@ const HomeScreen = ({ navigation }) => {
 
                 <TouchableOpacity style={[styles.touchableOpacityStyle, { backgroundColor: "#ed1c24" }]}
                     onPress={() => navigation.navigate(Bim)}>
-                    <Image style={styles.imageStyle} source={require("../../assets/images/bimlogo.png")}></Image>
+                    <Image style={styles.imageStyle} source={bimLogo}></Image>
                 </TouchableOpacity>
 
 
                 <TouchableOpacity style={[styles.touchableOpacityStyle, { backgroundColor: "#00abc7" }]}
                     onPress={() => navigation.navigate(A101)}>
-                    <Image style={styles.imageStyle} source={require("../../assets/images/a101logo.png")}></Image>
+                    <Image style={styles.imageStyle} source={a101Logo}></Image>
                 </TouchableOpacity>
 
 
                 <TouchableOpacity style={[styles.touchableOpacityStyle, { backgroundColor: "#ffe001" }]}
                     onPress={() => navigation.navigate(Sok)}>
-                    <Image style={styles.imageStyle} source={require("../../assets/images/soklogo.png")}></Image>
+                    <Image style={styles.imageStyle} source={sokLogo}></Image>
                 </TouchableOpacity><View style={{ flex: 0.2 }}></View>
             </ImageBackground>
             <View style={{ position: "absolute" ,bottom:0, alignSelf:"center"}}>

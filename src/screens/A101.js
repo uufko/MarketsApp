@@ -8,6 +8,7 @@ const dataPipeLine = doc(db, "data", "a101")
 let deviceWidht = Dimensions.get('window').width;
 let deviceHeight = Dimensions.get('window').height;
 const a101Blue = "#00abc7"
+const a101Logo = require("../../assets/images/a101logo.png")
 
 const A101 = ({ navigation }) => {
 
@@ -19,7 +20,8 @@ const A101 = ({ navigation }) => {
         }
         else {
             return { color: "gray" }
-        }}
+        }
+    }
 
     const borderStyleFunc = (item) => {
         if (item == currentDate[0] && currentPage == showPage) {
@@ -70,12 +72,12 @@ const A101 = ({ navigation }) => {
         <SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
             <ScrollView>
                 <View style={{ justifyContent: "center", alignItems: "center", backgroundColor: a101Blue }}>
-                    <Image source={require("../../assets/images/a101logo.png")} style={{ marginTop: 5, resizeMode: "contain", height: deviceHeight / 18, width: deviceHeight / 8 }} />
+                    <Image source={a101Logo} style={{ marginTop: 5, resizeMode: "contain", height: deviceHeight / 18, width: deviceHeight / 8 }} />
                     <Text style={{ fontSize: 12, opacity: .5, color: "white" }}>{text}</Text>
                 </View>
-                <View style={{ flexDirection: "row", justifyContent: "space-around", backgroundColor: a101Blue }}>
+                <View style={{ flexDirection: "row", justifyContent: "space-around", backgroundColor: a101Blue, height: deviceHeight / 20, alignItems: "center" }}>
                     <TouchableOpacity style={[styles.touchableStyle,
-                    currentDate == marketDates ? { borderBottomWidth: 1 } : { borderBottomWidth: 0 }
+                    currentDate == marketDates ? { borderBottomWidth: 2 } : {}
                     ]} onPress={() => {
                         setCurrentPage(market)
                         setColorMarket("white")
@@ -87,8 +89,8 @@ const A101 = ({ navigation }) => {
                         setState(true)
 
                     }}>
-                        <Text style={{ color: colorMarket }}>Haftanın Yıldızları</Text></TouchableOpacity>
-                    <TouchableOpacity style={[styles.touchableStyle, currentDate == aktuelDates ? { borderBottomWidth: 1 } : { borderBottomWidth: 0 }]} onPress={() => {
+                        <Text style={{ color: colorMarket, fontSize: 15 }}>Haftanın Yıldızları</Text></TouchableOpacity>
+                    <TouchableOpacity style={[styles.touchableStyle, currentDate == aktuelDates ? { borderBottomWidth: 2 } : {}]} onPress={() => {
                         setCurrentPage(aktuel)
                         setColorAktuel("white")
                         setColorMarket("gray")
@@ -98,7 +100,7 @@ const A101 = ({ navigation }) => {
                         setText("Aldın Aldın")
                         setState(false)
                     }}>
-                        <Text style={{ color: colorAktuel }}>Aldın Aldın</Text></TouchableOpacity>
+                        <Text style={{ color: colorAktuel, fontSize: 15 }}>Aldın Aldın</Text></TouchableOpacity>
                 </View>
                 <FlatList
                     data={currentPage}
@@ -133,7 +135,7 @@ const A101 = ({ navigation }) => {
             }}>
 
                 <FlatList
-                    columnWrapperStyle={{ justifyContent: "space-around"}} style={{ height: deviceWidht / 10 }}
+                    columnWrapperStyle={{ justifyContent: "space-around" }} style={{ height: deviceWidht / 10 }}
                     horizontal={false}
                     numColumns={2}
                     data={currentDate}
@@ -141,13 +143,13 @@ const A101 = ({ navigation }) => {
                         return (
                             <TouchableOpacity style={borderStyleFunc(item)} onPress={() => {
                                 item == currentDate[0] ? setCurrentPage(showPage) : <></>
-                                item == currentDate[0] ? setText("Bu Hafta") : <></>
+                                item == currentDate[0] ? setText(item) : <></>
                                 item == currentDate[1] ? setCurrentPage(showPage2) : <></>
-                                item == currentDate[1] ? setText("Gelecek Hafta") : <></>
+                                item == currentDate[1] ? setText(item) : <></>
 
                             }}>
                                 <Text style={
-                                    [styleFunc(item),{marginTop:7}]}>{item}</Text>
+                                    [styleFunc(item), { marginTop: 7 }]}>{item}</Text>
                             </TouchableOpacity>
                         )
                     }}
@@ -167,7 +169,11 @@ const styles = StyleSheet.create({
     touchableStyle: {
         flex: 1,
         alignItems: "center",
-        borderBottomColor: "white"
+        justifyContent: "center",
+        borderBottomColor: "white",
+        borderTopLeftRadius: 5,
+        borderTopRightRadius: 5,
+        height:deviceHeight/20
     }
 })
 export default A101

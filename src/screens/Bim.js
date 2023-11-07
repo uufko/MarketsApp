@@ -8,6 +8,7 @@ const dataPipeLine = doc(db, "data", "bim")
 let deviceWidht = Dimensions.get('window').width;
 let deviceHeight = Dimensions.get('window').height;
 const bimRed = "#ed1c24"
+const bimLogo = require("../../assets/images/bimlogo.png")
 
 const Bim = ({ navigation }) => {
 
@@ -53,7 +54,7 @@ const Bim = ({ navigation }) => {
     const [showPage, setShowPage] = useState(market)
     const [showPage2, setShowPage2] = useState(marketNext)
     const [currentDate, setCurrentDate] = useState(marketDates)
-    const [text, setText] = useState("Bu Hafta")
+    const [text, setText] = useState("Market Ürünleri")
 
     useEffect(() => {
         setCurrentDate(marketDates)
@@ -66,37 +67,38 @@ const Bim = ({ navigation }) => {
         setShowPage2(marketNext)
     }, [market])
 
-
     return (
-        <SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
+        <SafeAreaView style={styles.container}>
             <ScrollView>
                 <View style={{ justifyContent: "center", alignItems: "center", backgroundColor: bimRed }}>
-                    <Image source={require("../../assets/images/bimlogo.png")} style={{ marginTop: 5, resizeMode: "contain", height: deviceHeight / 18, width: deviceHeight / 8 }} />
+                    <Image source={bimLogo} style={{ marginTop: 5, resizeMode: "contain", height: deviceHeight / 18, width: deviceHeight / 8 }} />
                     <Text style={{ fontSize: 12, opacity: .5, color: "white" }}>{text}</Text>
                 </View>
-                <View style={{ flexDirection: "row", justifyContent: "space-around", backgroundColor: bimRed }}>
-                    <TouchableOpacity style={[styles.touchableStyle, currentDate == marketDates ? { borderBottomWidth: 1 } : { borderBottomWidth: 0 }]} onPress={() => {
-                        setCurrentPage(market)
-                        setColorMarket("white")
-                        setColorAktuel("gray")
-                        setShowPage(market)
-                        setShowPage2(marketNext)
-                        setCurrentDate(marketDates)
-                        setText("Bu Hafta")
-                    }}>
-                        <Text style={{ color: colorMarket }}>Market Ürünleri</Text>
+                <View style={styles.navBarViewStyle}>
+                    <TouchableOpacity style={[styles.touchableStyle, currentDate == marketDates ? { borderBottomWidth: 2 } : {}]}
+                        onPress={() => {
+                            setCurrentPage(market)
+                            setColorMarket("white")
+                            setColorAktuel("gray")
+                            setShowPage(market)
+                            setShowPage2(marketNext)
+                            setCurrentDate(marketDates)
+                            setText("Market Ürünleri")
+                        }}>
+                        <Text style={[{ color: colorMarket, fontSize: 15 }, currentDate == marketDates ? {} : {}]}>Market Ürünleri</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={[styles.touchableStyle, currentDate == aktuelDates ? { borderBottomWidth: 1 } : { borderBottomWidth: 0 }]} onPress={() => {
-                        setCurrentPage(aktuel)
-                        setColorAktuel("white")
-                        setColorMarket("gray")
-                        setShowPage(aktuel)
-                        setShowPage2(aktuelNext)
-                        setCurrentDate(aktuelDates)
-                        setText("Bu Hafta")
-                    }}>
-                        <Text style={{ color: colorAktuel }}>Aktüel Ürünler</Text>
+                    <TouchableOpacity style={[styles.touchableStyle, currentDate == aktuelDates ? { borderBottomWidth: 2 } : {}]}
+                        onPress={() => {
+                            setCurrentPage(aktuel)
+                            setColorAktuel("white")
+                            setColorMarket("gray")
+                            setShowPage(aktuel)
+                            setShowPage2(aktuelNext)
+                            setCurrentDate(aktuelDates)
+                            setText("Aktüel Ürünler")
+                        }}>
+                        <Text style={{ color: colorAktuel, fontSize: 15 }}>Aktüel Ürünler</Text>
                     </TouchableOpacity>
 
 
@@ -132,21 +134,26 @@ const Bim = ({ navigation }) => {
             }}>
 
                 <FlatList
-                    columnWrapperStyle={{ justifyContent: "space-around"}} style={{ height: deviceWidht / 10 }}
+                    columnWrapperStyle={{ justifyContent: "space-around" }} style={{ height: deviceWidht / 10 }}
                     horizontal={false}
                     numColumns={2}
                     data={currentDate}
                     renderItem={({ item }) => {
                         return (
                             <TouchableOpacity style={borderStyleFunc(item)} onPress={() => {
-                                item == currentDate[0] ? setCurrentPage(showPage) : <></>
-                                item == currentDate[0] ? setText("Bu Hafta") : <></>
-                                item == currentDate[1] ? setCurrentPage(showPage2) : <></>
-                                item == currentDate[1] ? setText("Gelecek Hafta") : <></>
+
+                                if (item == currentDate[0]) {
+                                    setCurrentPage(showPage)
+                                    setText(item)
+                                }
+                                else if (item == currentDate[1]) {
+                                    setCurrentPage(showPage2)
+                                    setText(item)
+                                }
 
                             }}>
                                 <Text style={
-                                    [styleFunc(item), {marginTop:7}]}>{item}</Text>
+                                    [styleFunc(item), { marginTop: 7 }]}>{item}</Text>
                             </TouchableOpacity>
                         )
                     }}
@@ -166,7 +173,37 @@ const styles = StyleSheet.create({
     touchableStyle: {
         flex: 1,
         alignItems: "center",
-        borderBottomColor: "white"
+        borderBottomColor: "white",
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        justifyContent: "center"
+    },
+    container: {
+        backgroundColor: "white",
+        flex: 1
+    },
+    toolBarViewStyle: {
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: bimRed
+    },
+    toolBarImageStyle: {
+        marginTop: 5,
+        resizeMode: "contain",
+        height: deviceHeight / 18,
+        width: deviceHeight / 8
+    },
+    toolBarTextStyle: {
+        fontSize: 12,
+        opacity: .5,
+        color: "white"
+    },
+    navBarViewStyle: {
+        flexDirection: "row",
+        justifyContent: "space-around",
+        backgroundColor: bimRed,
+        height: deviceHeight / 20
     }
 })
+
 export default Bim

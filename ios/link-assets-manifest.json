@@ -4,6 +4,10 @@
     {
       "path": "assets/fonts/Koblenz-Serial-Heavy.ttf",
       "sha1": "6391ea2545303104e5176f6456bd37fb0a45a23b"
+    },
+    {
+      "path": "assets/fonts/Nunito-VariableFont_wght.ttf",
+      "sha1": "c2adb9c3bcb684afc16cab5e70e8da3d3700a91e"
     }
   ]
 }
