@@ -3,6 +3,7 @@ import React, { useState, useEffect, isValidElement } from 'react'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase/config'
 import FullBannerAds from '../../components/ads/FullBannerAds'
+import MarketHeader from '../../components/MarketHeader'
 
 const dataPipeLine = doc(db, "data", "a101")
 let deviceWidht = Dimensions.get('window').width;
@@ -71,10 +72,7 @@ const A101 = ({ navigation }) => {
     return (
         <SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
             <ScrollView>
-                <View style={{ justifyContent: "center", alignItems: "center", backgroundColor: a101Blue }}>
-                    <Image source={a101Logo} style={{ marginTop: 5, resizeMode: "contain", height: deviceHeight / 18, width: deviceHeight / 8 }} />
-                    <Text style={{ fontSize: 12, opacity: .5, color: "white" }}>{text}</Text>
-                </View>
+                <MarketHeader headerLogo={a101Logo} headertText={text} headerColor={a101Blue} textColor={"white"}/>
                 <View style={{ flexDirection: "row", justifyContent: "space-around", backgroundColor: a101Blue, height: deviceHeight / 20, alignItems: "center" }}>
                     <TouchableOpacity style={[styles.touchableStyle,
                     currentDate == marketDates ? { borderBottomWidth: 2 } : {}

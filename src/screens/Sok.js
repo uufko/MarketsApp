@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase/config'
 import FullBannerAds from '../../components/ads/FullBannerAds'
+import MarketHeader from '../../components/MarketHeader'
 
 const dataPipeLine = doc(db, "data", "sok")
 let deviceWidht = Dimensions.get('window').width;
@@ -59,10 +60,7 @@ const Sok = ({ navigation }) => {
     return (
         <SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
             <ScrollView>
-                <View style={{ justifyContent: "center", alignItems: "center", backgroundColor: sokYellow }}>
-                    <Image source={sokLogo} style={styles.toolBarImageStyle} />
-                    <Text style={{ fontSize: 12, opacity: .5, color: "black" }}>{text}</Text>
-                </View>
+                <MarketHeader headerColor={sokYellow} headerLogo={sokLogo} headertText={text} textColor={"black"} />
                 <View style={{ flexDirection: "row", justifyContent: "space-around", backgroundColor: sokYellow, height: deviceHeight / 20 }}>
                     <TouchableOpacity style={[styles.touchableStyle, currentPage == market ? { borderBottomWidth: 2 } : { borderBottomWidth: 0 }]} onPress={() => {
                         setCurrentPage(market)
