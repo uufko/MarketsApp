@@ -82,7 +82,7 @@ const Bim = ({ navigation }) => {
     return (
         <SafeAreaView style={Style.container}>
             <ScrollView>
-                <MarketHeader headerLogo={Metarial.bimLogo} headerColor={Color.bimRed} headertText={text} textColor={"white"} />
+                <MarketHeader page={"A101"} headerLogo={Metarial.bimLogo} headerColor={Color.bimRed} headertText={text} textColor={"white"} />
                 <View style={Style.navBarViewStyle}>
                     <TouchableOpacity style={[Style.touchableStyle, currentDate == marketDates ? { borderBottomWidth: 2 } : {}]}
                         onPress={() => {
@@ -94,7 +94,7 @@ const Bim = ({ navigation }) => {
                             setCurrentDate(marketDates)
                             setText("Market Ürünleri")
                         }}>
-                        <Text style={[{ color: colorMarket, fontSize: 15 }, currentDate == marketDates ? {} : {}]}>Market Ürünleri</Text>
+                        <Text style={[{ color: colorMarket, fontSize: 15 , fontFamily:"Montserrat-Medium"}, currentDate == marketDates ? {} : {}]}>Market Ürünleri</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={[Style.touchableStyle, currentDate == aktuelDates ? { borderBottomWidth: 2 } : {}]}
@@ -107,7 +107,7 @@ const Bim = ({ navigation }) => {
                             setCurrentDate(aktuelDates)
                             setText("Aktüel Ürünler")
                         }}>
-                        <Text style={{ color: colorAktuel, fontSize: 15 }}>Aktüel Ürünler</Text>
+                        <Text style={{ color: colorAktuel, fontSize: 15 , fontFamily:"Montserrat-Medium" }}>Aktüel Ürünler</Text>
                     </TouchableOpacity>
 
 
@@ -145,7 +145,7 @@ const Bim = ({ navigation }) => {
                                 bottomBarFunc({ item })
                             }}>
                                 <Text style={
-                                    [bottomBatStyleFunc(item), { marginTop: 7 }]}>{item}</Text>
+                                    [bottomBatStyleFunc(item), { marginTop: 7  , fontFamily:"Montserrat-Medium"}]}>{item}</Text>
                             </TouchableOpacity>
                         )
                     }}

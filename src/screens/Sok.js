@@ -72,7 +72,7 @@ const Sok = ({ navigation }) => {
                         setText("Çarşamba Fırsatları")
 
                     }}>
-                        <Text style={{ color: colorMarket }}>Çarşamba Fırsatları</Text></TouchableOpacity>
+                        <Text style={{ color: colorMarket , fontFamily:"Montserrat-Medium" }}>Çarşamba Fırsatları</Text></TouchableOpacity>
                     <TouchableOpacity style={[styles.touchableStyle, currentPage == aktuel ? { borderBottomWidth: 2 } : { borderBottomWidth: 0 }]} onPress={() => {
                         setCurrentPage(aktuel)
                         setColorAktuel("black")
@@ -82,7 +82,7 @@ const Sok = ({ navigation }) => {
                         setCurrentDate(aktuelDates)
                         setText("Cumatesi Fırsatları")
                     }}>
-                        <Text style={{ color: colorAktuel }}>Cumatesi Fırsatları</Text></TouchableOpacity>
+                        <Text style={{ color: colorAktuel  , fontFamily:"Montserrat-Medium"}}>Cumatesi Fırsatları</Text></TouchableOpacity>
                 </View>
                 <FlatList
                     data={currentPage}
@@ -131,7 +131,7 @@ const Sok = ({ navigation }) => {
 
                             }}>
                                 <Text style={
-                                    styleFunc(item)}>{item}</Text>
+                                    [styleFunc(item) , {fontFamily:"Montserrat-Medium"}]}>{item}</Text>
                             </TouchableOpacity>
                         )
                     }}

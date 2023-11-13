@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, FlatList, ImageBackground, StyleSheet, Dimensions, TouchableOpacity, Image, ScrollView } from 'react-native'
-import React, { useState, useEffect, isValidElement } from 'react'
+import React, { useState, useEffect } from 'react'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase/config'
 import FullBannerAds from '../../components/ads/FullBannerAds'
@@ -87,7 +87,7 @@ const A101 = ({ navigation }) => {
                         setState(true)
 
                     }}>
-                        <Text style={{ color: colorMarket, fontSize: 15 }}>Haftanın Yıldızları</Text></TouchableOpacity>
+                        <Text style={{ color: colorMarket, fontSize: 15 , fontFamily:"Montserrat-Medium"}}>Haftanın Yıldızları</Text></TouchableOpacity>
                     <TouchableOpacity style={[styles.touchableStyle, currentDate == aktuelDates ? { borderBottomWidth: 2 } : {}]} onPress={() => {
                         setCurrentPage(aktuel)
                         setColorAktuel("white")
@@ -98,7 +98,7 @@ const A101 = ({ navigation }) => {
                         setText("Aldın Aldın")
                         setState(false)
                     }}>
-                        <Text style={{ color: colorAktuel, fontSize: 15 }}>Aldın Aldın</Text></TouchableOpacity>
+                        <Text style={{ color: colorAktuel, fontSize: 15 , fontFamily:"Montserrat-Medium" }}>Aldın Aldın</Text></TouchableOpacity>
                 </View>
                 <FlatList
                     data={currentPage}
@@ -147,7 +147,7 @@ const A101 = ({ navigation }) => {
 
                             }}>
                                 <Text style={
-                                    [styleFunc(item), { marginTop: 7 }]}>{item}</Text>
+                                    [styleFunc(item), { marginTop: 7  , fontFamily:"Montserrat-Medium"}]}>{item}</Text>
                             </TouchableOpacity>
                         )
                     }}

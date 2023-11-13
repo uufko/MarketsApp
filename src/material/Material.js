@@ -1,7 +1,8 @@
 export const Metarial = {
     bimLogo: require("../../assets/images/bimlogo.png"),
     a101Logo: require("../../assets/images/a101logo.png"),
-    sokLogo: require("../../assets/images/soklogo.png")
+    sokLogo: require("../../assets/images/soklogo.png"),
+    background: require("../../assets/images/backpng.png")
 }
 
 export const Color = {
