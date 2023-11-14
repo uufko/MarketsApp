@@ -2,7 +2,8 @@
   "name": "MarketsApp",
   "displayName": "MarketsApp",
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-9042490279958793~2684718177"
+    "android_app_id": "ca-app-pub-9042490279958793~2684718177",
+    "ios_app_id": "ca-app-pub-9042490279958793~2684718177"
   }
 }
 

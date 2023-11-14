@@ -60,7 +60,7 @@ const Sok = ({ navigation }) => {
     return (
         <SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
             <ScrollView>
-                <MarketHeader headerColor={sokYellow} headerLogo={sokLogo} headertText={text} textColor={"black"} />
+                <MarketHeader headerColor={sokYellow} headerLogo={sokLogo} headertText={text} textColor={"black"} navigation={navigation} />
                 <View style={{ flexDirection: "row", justifyContent: "space-around", backgroundColor: sokYellow, height: deviceHeight / 20 }}>
                     <TouchableOpacity style={[styles.touchableStyle, currentPage == market ? { borderBottomWidth: 2 } : { borderBottomWidth: 0 }]} onPress={() => {
                         setCurrentPage(market)
