@@ -72,7 +72,11 @@ const A101 = ({ navigation }) => {
     return (
         <SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
             <ScrollView>
+<<<<<<< HEAD
                 <MarketHeader headerLogo={a101Logo} headertText={text} headerColor={a101Blue} textColor={"white"}  navigation={navigation}/>
+=======
+                <MarketHeader headerLogo={a101Logo} headertText={text} headerColor={a101Blue} textColor={"white"} navigation={navigation}/>
+>>>>>>> b4de8afb6d6d1215b748192108e523f090cdc403
                 <View style={{ flexDirection: "row", justifyContent: "space-around", backgroundColor: a101Blue, height: deviceHeight / 20, alignItems: "center" }}>
                     <TouchableOpacity style={[styles.touchableStyle,
                     currentDate == marketDates ? { borderBottomWidth: 2 } : {}

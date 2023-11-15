@@ -22,6 +22,7 @@ flipper_config = ENV['NO_FLIPPER'] == "1" ? FlipperConfiguration.disabled : Flip
 linkage = ENV['USE_FRAMEWORKS']
 if linkage != nil
   Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
+  pod 'Google-Mobile-Ads-SDK'
   use_frameworks! :linkage => linkage.to_sym
 end
 
@@ -43,6 +44,8 @@ target 'MarketsApp' do
     :flipper_configuration => flipper_config,
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
+
+
   )
 
   target 'MarketsAppTests' do
