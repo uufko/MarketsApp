@@ -82,7 +82,7 @@ const Bim = ({ navigation }) => {
     return (
         <SafeAreaView style={Style.container}>
             <ScrollView>
-                <MarketHeader page={"A101"} headerLogo={Metarial.bimLogo} headerColor={Color.bimRed} headertText={text} textColor={"white"} />
+                <MarketHeader page={"A101"} headerLogo={Metarial.bimLogo} headerColor={Color.bimRed} headertText={text} textColor={"white"} navigation={navigation} />
                 <View style={Style.navBarViewStyle}>
                     <TouchableOpacity style={[Style.touchableStyle, currentDate == marketDates ? { borderBottomWidth: 2 } : {}]}
                         onPress={() => {

@@ -9,7 +9,7 @@ const MarketHeader = ({ headerLogo, headerColor, headertText, textColor, navigat
 
   return (
     <View style={{ justifyContent: "center", alignItems: "center", backgroundColor: headerColor, flexDirection: "row", flex: 1 }}>
-      <TouchableOpacity onPress={()=> {navigation.navigate(HomeScreen)}} style={{ flex: 1 }}>
+      <TouchableOpacity onPress={()=> {navigation.goBack()}} style={{ flex: 1 }}>
         <Image style={{ flex: 1, height: deviceHeight / 20, width: deviceHeight / 25, left: 20, resizeMode: "contain" }}
           source={require("../assets/images/backbuttonlight.png")} />
       </TouchableOpacity>
