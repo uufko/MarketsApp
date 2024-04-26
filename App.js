@@ -2,27 +2,30 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen/HomeScreen';
-import Bim from './src/screens/Bim';
-import A101 from './src/screens/A101';
-import Sok from './src/screens/Sok';
 import FullScreen from './components/FullScreen';
+import UA101 from './src/screens/A101Page/uA101';
+import USok from './src/screens/SokPage/uSok';
+import UBim from './src/screens/BimPage/uBim';
+import { Provider } from 'react-redux';
+import { Store } from './src/redux/store';
 const Stack = createNativeStackNavigator();
 const App = () => {
   return (
+    <Provider store={Store}>
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="HomeScreen" component={HomeScreen}
           options={{ headerShown: false }} />
-        <Stack.Screen name='Bim' component={Bim}
+        <Stack.Screen name='UBim' component={UBim}
           options={{ headerShown: false }} />
-        <Stack.Screen name='A101' component={A101}
+        <Stack.Screen name='UA101' component={UA101}
           options={{ headerShown: false }} />
-        <Stack.Screen name='Sok' component={Sok}
+        <Stack.Screen name='USok' component={USok}
           options={{ headerShown: false }} />
         <Stack.Screen name='FullScreen' component={FullScreen}
           options={{ headerShown: false }} />
       </Stack.Navigator>
-    </NavigationContainer>
+    </NavigationContainer></Provider>
   )
 }
 export default App;

@@ -1,37 +1,58 @@
-import { Text, View, TouchableOpacity, Image, ImageBackground, SafeAreaView } from 'react-native'
-import React from 'react'
-import FullBannerAds from '../../../components/ads/FullBannerAds'
-import { Metarial, Color } from '../../material/Material'
-import { Style } from './Style'
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  ImageBackground,
+  SafeAreaView,
+} from 'react-native';
+import React, { useEffect } from 'react';
+import FullBannerAds from '../../../components/ads/FullBannerAds';
+import {Style} from './Style';
+import USok from '../SokPage/uSok';
+import UBim from '../BimPage/uBim';
+import UA101 from '../A101Page/uA101';
+import UMarketView from '../../components/atoms/uMarketView/uMarketView';
+import {UImages} from '../../assets/uImages/uImages';
+import {UColors} from '../../assets/uColors/uColors';
+import { UDevice } from '../../assets/uDevice/uDevice';
+import UFirebase from '../../firebase/uFirebase';
+import { useDispatch } from 'react-redux';
+import { refresh } from '../../redux/slice';
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({navigation}) => {  
+  return (
+    <SafeAreaView style={Style.container}>
+      <ImageBackground
+        source={UImages.back}
+        resizeMode="stretch"
+        style={{flex: 1, gap: 30}}>
+        
+          <Text style={Style.textStyle}>AKTÜEL ÜRÜNLER</Text>
+        
+        <UMarketView
+          source={UImages.bim}
+          backgroundColor={UColors.bimRed}
+          onPress={() => navigation.navigate(UBim)}
+          height={UDevice.height*.065}
+        />
+        <UMarketView
+          source={UImages.a101}
+          backgroundColor={UColors.a101Blue}
+          onPress={() => navigation.navigate(UA101)}
+          height={UDevice.height*.04}
+        />
+        <UMarketView
+          source={UImages.sok}
+          backgroundColor={UColors.sokYellow}
+          onPress={() => navigation.navigate(USok)}
+          height={UDevice.height*.08}
+        />
 
-    return (
-        <SafeAreaView style={Style.container}>
-            <ImageBackground source={Metarial.background} resizeMode='stretch' style={{ flex: 1, gap: 30 }}>
-                <View style={{ flex: 2, justifyContent: "top", alignItems: "center", padding: 20 }}>
-                    <Text style={Style.textStyle}>AKTÜEL ÜRÜNLER</Text></View>
-
-                <TouchableOpacity style={[Style.touchableOpacityStyle, { backgroundColor: Color.bimRed }]}
-                    onPress={() => navigation.navigate("Bim")}>
-                    <Image style={Style.imageStyle} source={Metarial.bimLogo}></Image>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={[Style.touchableOpacityStyle, { backgroundColor: Color.a101Blue }]}
-                    onPress={() => navigation.navigate("A101")}>
-                    <Image style={Style.imageStyle} source={Metarial.a101Logo}></Image>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={[Style.touchableOpacityStyle, { backgroundColor: Color.sokYellow }]}
-                    onPress={() => navigation.navigate("Sok")}>
-                    <Image style={Style.imageStyle} source={Metarial.sokLogo}></Image>
-                </TouchableOpacity><View style={{ flex: 0.2 }}></View>
-            </ImageBackground>
-            <View style={Style.adStyle}>
-                <FullBannerAds />
-            </View>
-        </SafeAreaView>
-    )
-}
+      </ImageBackground>
+        <FullBannerAds />
+    </SafeAreaView>
+  );
+};
 
 export default HomeScreen;
