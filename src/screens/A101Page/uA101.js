@@ -1,4 +1,4 @@
-import {View, Text, UIManager, SafeAreaView} from 'react-native';
+import {View, Text, UIManager, SafeAreaView, StatusBar} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import UHeader from '../../components/atoms/uHeader/uHeader';
 import UProducts from '../../components/molecules/uProducts/uProducts';
@@ -13,7 +13,7 @@ import { setA101, setBim, setCurrentData, setCurrentNextData, setHeaderText } fr
 const dataPipeLine = doc(db, 'data', 'a101');
 
 const UA101 = () => {
-  const {currentData} = useSelector(state => state.market);
+  const {currentData,a101AktuelThisWeek} = useSelector(state => state.market);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,6 +27,7 @@ const UA101 = () => {
 
   return (
     <View style={{flex: 1}}>
+      <StatusBar backgroundColor={UColors.a101Blue}/>
       <UHeader
         onPressBuHafta={() => {dispatch(setCurrentNextData("this"))}}
         onPressGelecekHafta={() => {dispatch(setCurrentNextData("next"))}}
@@ -34,7 +35,7 @@ const UA101 = () => {
         height={UDevice.height * 0.06}
         backgroundColor={UColors.a101Blue}
       />
-      <UProducts data={currentData} />
+      <UProducts data={a101AktuelThisWeek} />
       <UBottomBar
         onPressLeft={() => {dispatch(setCurrentData("aktuel")),dispatch(setHeaderText("Aldın Aldın"))}}
         onPressRight={() => {dispatch(setCurrentData("market")),dispatch(setHeaderText("Haftanın Yıldızları"))}}

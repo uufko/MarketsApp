@@ -1,4 +1,4 @@
-import {View, Text, UIManager} from 'react-native';
+import {View, Text, UIManager, StatusBar} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import UHeader from '../../components/atoms/uHeader/uHeader';
 import UProducts from '../../components/molecules/uProducts/uProducts';
@@ -27,6 +27,7 @@ const USok = () => {
 
   return (
     <View style={{flex: 1}}>
+      <StatusBar backgroundColor={UColors.sokYellow} barStyle={"dark-content"}/>
       <UHeader
         onPressBuHafta={() => {dispatch(setCurrentNextData("this"))}}
         onPressGelecekHafta={() => {dispatch(setCurrentNextData("next"))}}

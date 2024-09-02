@@ -11,7 +11,11 @@ const MarketSlice = createSlice({
         bimNextMarket:[],
         currentData:[],
         currentNextData:[],
-        setState:"aktuel"
+        setState:"aktuel",
+        a101ThisWeek:"",
+        a101NextWeek:"",
+        a101AktuelThisWeek:"",
+        a101AktuelNextWeek:""
     },
     reducers: {
         
@@ -44,6 +48,7 @@ const MarketSlice = createSlice({
             }else{
                 state.currentData = state.bimAktuel
             }
+            
         },
         setCurrentNextData(state,data){
             if(state.setState=="aktuel"){
@@ -63,11 +68,24 @@ const MarketSlice = createSlice({
         },setHeaderText(state,data){
             state.headerText = data.payload
             
+        },
+        setA101ThisWeek(state,data){
+            state.a101ThisWeek = data.payload
+        },
+        setA101NextWeek(state,data){
+            state.a101NextWeek = data.payload
+        },
+        setA101AktuelThisWeek(state,data){
+            state.a101AktuelThisWeek = data.payload
+            
+        },
+        setA101AktuelNextWeek(state,data){
+            state.a101AktuelNextWeek = data.payload
         }
     },
 });
 
 export const {
-    setBim,setCurrentData,setCurrentNextData,setHeaderText
+    setBim,setCurrentData,setCurrentNextData,setHeaderText,setA101ThisWeek,setA101NextWeek,setA101AktuelThisWeek,setA101AktuelNextWeek
 } = MarketSlice.actions;
 export default MarketSlice;
